@@ -53,8 +53,8 @@ font-weight: 500;
 <br>
         <div class="container is-fluid" id="top"> </div>
         <div class="container is-fluid" id="map" style = "width: 900px; height: 580px"></div>
-       <script> /* 
-//var storedPoints = [];
+       <script> 
+
 async function getData() {
         let url = 'http://34.212.90.59/all/';
 	//let url = 'http://34.212.90.59:8080/all/';
@@ -90,6 +90,6 @@ async function renderData() {
                        marker = new L.marker([parseFloat(storedPoints[i][1]),parseFloat(storedPoints[i][2])]).bindPopup(storedPoints[i][0] + '<br>' + storedPoints[i][3] + '<br>' + storedPoints[i][4] + '<br>' + `<a href=${storedPoints[i][5]}>${storedPoints[i][5]}</a>`).addTo(map);
                    }
            } 
-renderData(); */
+renderData();
     </script>
 </body></html>
