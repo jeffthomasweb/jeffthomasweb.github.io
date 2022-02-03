@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Buffalo Food Banks</title>
+<style>
+h1 {
+/*background-color: black; 
+color: white; */
+font-family: Verdana, Helvetica, Arial, sans-serif;
+font-weight: 500;
+font-size: 1.6em;
+}
+
+body {
+/* background-color: black;
+color: white; */
+/*white-space: pre-wrap;*/
+font-family: Verdana, Helvetica, Arial, sans-serif;
+padding-left: 5%;
+padding-right: 5%;
+font-weight: 500;
+/* font-size: 1.6em; */
+}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin="">  </script>
+    </head>
+    <body>
+    <section class="hero is-info">
+        <div class="hero-body">
+<h1 class="title has-text-white">Buffalo Food Banks</h1>
+        </div>
+    </section>
+    <nav class="breadcrumb container is-fluid" aria-label="breadcrumbs">
+  <ul>
+    <li class="is-active"><a href="http://34.212.90.59/" aria-current="page">Home</a></li>
+    <li><a href="http://34.212.90.59/news.html">Buffalo News</a></li>
+    <li><a href="http://34.212.90.59/all/">Food Bank API</a></li>
+    <li><a href="http://34.212.90.59/buffalonews">News API</a></li>
+  </ul>
+</nav>
+<div class="container is-fluid">
+<h1 class="title"> Buffalo Food Banks</h1>
+<p>A list and map of some of the food banks located in Buffalo, NY. The goal of this portfolio project is to create a site with Nginx as a reverse proxy, Java Spring as the web framework, Postgres as the database, plot location points on a map using the JavaScript library Leaflet, and have wide test coverage. The site has a JSON API and vanilla JavaScript is used to create HTML from the JSON data. I don't have a domain for the website so unfortunately the website address is an IP address. The website may show as "not secure" in some browsers because I don't have a TLS certificate for https (the site ues http rather than https.)</p>
+</div>
+<br>
+        <div class="container is-fluid" id="top"> </div>
+        <div class="container is-fluid" id="map" style = "width: 900px; height: 580px"></div>
+       <script> /* 
+//var storedPoints = [];
+async function getData() {
+        let url = 'http://34.212.90.59/all/';
+	//let url = 'http://34.212.90.59:8080/all/';
+        try {
+                let response = await fetch(url);
+                return await response.json();
+            } catch (error) {
+                    console.log(error);
+                }
+    }
+async function renderData() {
+        let foodbanks = await getData();
+        
+        let html = "";
+        foodbanks.forEach(location => {
+		let htmlSegment = `<p><b>${location.name}</b></p>
+                                   <p>${location.address}</p>
+                                   <p>${location.phone}</p>
+				   <p><a href=${location.website}>${location.website}</a></p><br>`;
+                html += htmlSegment;
+            });
+        let storedPoints = [];
+        storedPoints = foodbanks.map(function(a) {
+            //return `[${a.lat},${a.longit}]`;
+            return [a.name,a.lat,a.longit,a.address,a.phone,a.website];
+                   }); 
+        console.log(storedPoints);
+        let container = document.querySelector("#top");
+        container.innerHTML = html;
+        var map = L.map('map').setView([42.880230, -78.878738], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+        for (i=0; i<storedPoints.length; i++) {
+                       marker = new L.marker([parseFloat(storedPoints[i][1]),parseFloat(storedPoints[i][2])]).bindPopup(storedPoints[i][0] + '<br>' + storedPoints[i][3] + '<br>' + storedPoints[i][4] + '<br>' + `<a href=${storedPoints[i][5]}>${storedPoints[i][5]}</a>`).addTo(map);
+                   }
+           } 
+renderData(); */
+    </script>
+</body></html>
